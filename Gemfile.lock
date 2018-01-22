@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:mattlgroff/md_simple_editor.git
+  remote: git://github.com/mattlgroff/md_simple_editor.git
   revision: 2f75d9377b40eb9303b4e8968a186212777f59c1
   specs:
     md_simple_editor (0.3.0)
