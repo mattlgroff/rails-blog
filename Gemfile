@@ -54,7 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # jQuery, Bootstrap-sass, MD Editor
-gem 'md_simple_editor', :git => 'git@github.com:mattlgroff/md_simple_editor.git'
+gem 'md_simple_editor', :git => "https://#{ENV['GITHUB_TOKEN']}:x-oauth-basic@github.com/mattlgroff/md_simple_editor.git"
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 
