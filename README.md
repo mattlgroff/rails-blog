@@ -38,6 +38,3 @@ In __form.html.erb_:
       </div>
     </div>
 ```
-
-
->>>>>>> 5bba77048144533afde3fc202e83f605e0c2f7f1
