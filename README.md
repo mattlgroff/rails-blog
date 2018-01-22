@@ -1,24 +1,43 @@
-# README
+## The Source
+I found a wonderful guide on Scaffold by K Hong you can find [here](http://www.bogotobogo.com/RubyOnRails/RubyOnRails_Blog_with_post_and_comment.php).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Markdown Rendering
+[Redcarpet](https://github.com/vmg/redcarpet) handles turning markdown text into HTML, which goes into embedded ruby templating engine (.erb).
 
-Things you may want to cover:
+In _posts_helper.rb_:
 
-* Ruby version
+```
+module PostsHelper
+  def markdownHelper(text)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    return markdown.render(text).html_safe
+  end
+end
+```
 
-* System dependencies
+In _show.html.erb_ :
 
-* Configuration
+```
+<%= markdownHelper @post.body %>
+```
 
-* Database creation
+## Markdown Editing
+[md_simple_editor](https://github.com/rderoldan1/md_simple_editor) by rderoldan1 loads in a better text-area that includes build-in markdown editing tools. Neat! 
 
-* Database initialization
+I had to fork and edit their repo to add in a CSRF work-around for md_simple_editor which you can find [here](https://github.com/mattlgroff/md_simple_editor)
 
-* How to run the test suite
+In __form.html.erb_:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+    <div>
+      <%= form.label :body %>
+      <div class="form-group">
+        <%= md_simple_editor  do %>
+          <%= form.text_area :body, id: :post_body %>
+        <% end %>
+      </div>
+    </div>
+```
 
-* Deployment instructions
 
-* ...
+>>>>>>> 5bba77048144533afde3fc202e83f605e0c2f7f1
