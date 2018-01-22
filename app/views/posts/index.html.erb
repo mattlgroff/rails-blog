@@ -1,0 +1,33 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Matt Groff's Rails Blog</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Posts</th>
+        <th>Options</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @posts.each do |post| %>
+      <div>
+        <tr>
+          <td><strong><%= link_to post.title, post %></strong></td>
+          <div>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
+            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </div>
+        </tr>
+      </div>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Post', new_post_path %>
+</div>
