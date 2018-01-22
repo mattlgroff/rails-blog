@@ -22,7 +22,9 @@ In _show.html.erb_ :
 ```
 
 ## Markdown Editing
-[md_simple_editor](https://github.com/rderoldan1/md_simple_editor) by rderoldan1 loads in a better text-area that includes build-in markdown editing tools. Neat!
+[md_simple_editor](https://github.com/rderoldan1/md_simple_editor) by rderoldan1 loads in a better text-area that includes build-in markdown editing tools. Neat! 
+
+I had to fork and edit their repo to add in a CSRF work-around for md_simple_editor which you can find [here](https://github.com/mattlgroff/md_simple_editor)
 
 In __form.html.erb_:
 
