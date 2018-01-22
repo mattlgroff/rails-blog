@@ -1,33 +1,60 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Matt Groff's Rails Blog</h1>
+  <div class="row">
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Posts</th>
-        <th>Options</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @posts.each do |post| %>
+      <!-- Blog Entries Column -->
       <div>
-        <tr>
-          <td><strong><%= link_to post.title, post %></strong></td>
-          <div>
-            <td><%= link_to 'Edit', edit_post_path(post) %></td>
-            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </div>
-        </tr>
-      </div>
-      <% end %>
-    </tbody>
-  </table>
 
+          <h1 class="page-header">
+              Matt Groff's Blog
+              <div>
+                <small>Learning Rails from a JS Perspective</small>
+              </div>
+          </h1>
+
+          <!-- Blog Posts -->
+            <% @posts.each do |post| %>
+            <div>
+              <strong><h2><%= link_to post.title, post %></h2></strong>
+              </h2>
+              <hr>
+              <div><%= markdownHelper post.body %></div>
+              -------------------------------------
+              <div>
+                <a class="btn btn-warning" href="<%= edit_post_path(post) %>">
+                  Edit
+                </a>
+                
+                <a class="btn btn-info" href="/posts/<%= post.id %>"> 
+                  Link
+                </a>
+              </div>
+          </div>
+          <hr>
+          <% end %>
+          <br> 
+          <a class="btn btn-default" href="<%= new_post_path %>">
+            New Post
+          </a>
+
+
+          <!-- Pager -->
+        <!--   <ul class="pager">
+              <li class="previous">
+                  <a href="#">&larr; Older</a>
+              </li>
+              <li class="next">
+                  <a href="#">Newer &rarr;</a>
+              </li>
+          </ul> -->
+
+      </div>
+
+
+  </div>
+  <!-- /.row -->
   <br>
 
-  <%= link_to 'New Post', new_post_path %>
+  
 </div>

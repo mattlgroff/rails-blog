@@ -15,7 +15,7 @@
     <div>
       <%= form.label :title %>
       <div class="form-group">
-        <%= form.text_field :title, id: :post_title %>
+        <%= form.text_field :title, id: :post_title, :size => '100' %>
       </div>
     </div>
 
@@ -23,13 +23,13 @@
       <%= form.label :body %>
       <div class="form-group">
         <%= md_simple_editor  do %>
-          <%= form.text_area :body, id: :post_body %>
+          <%= form.text_area :body, id: :post_body, :rows => '8', :cols => '100' %>
         <% end %>
       </div>
     </div>
 
     <div class="actions form-group">
-      <%= form.submit %>
+      <%= form.submit "Save Post", :class => 'btn btn-success' %>
     </div>
   <% end %>
 </div>

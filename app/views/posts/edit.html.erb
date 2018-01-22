@@ -2,5 +2,8 @@
 
 <%= render 'form', post: @post %>
 
+<button class="btn btn-danger">
+  <a href="<%= posts_path %>">Back</a>
+</button>
 <%= link_to 'Show', @post %> |
 <%= link_to 'Back', posts_path %>
